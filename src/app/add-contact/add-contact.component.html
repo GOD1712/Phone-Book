@@ -1,0 +1,32 @@
+<div class="my-4">
+    <h4 class="add-contact-h4">Contacts</h4>
+    <button class="btn btn-primary float-end" (click)="open(content)">+Add Contact</button>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h3 class="modal-title">Add Contact</h3>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="my-3">
+                <div class="mb-3">
+                    <label for="input1" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="input1" formControlName="fname">
+                </div>
+                <div class="mb-3">
+                    <label for="input2" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="input2" formControlName="lname">
+                </div>
+                <div class="mb-3">
+                    <label for="input3" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="input3" formControlName="pNo">
+                </div>
+                <div class="mt-3 modal-footer">
+                    <button type="submit" class="btn btn-primary btn-md me-2"
+                        (click)="modal.close('Save click')">Create</button>
+                    <button type="button" class="btn btn-secondary btn-md" (click)="clear()">Clear</button>
+                </div>
+            </form>
+        </div>
+    </ng-template>
+</div>
